@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Certificate</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Baskervville+SC&family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Dancing+Script:wght@400..700&family=Qwitcher+Grypen:wght@400;700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
+    <style>
+        .top {
+            border: 1px solid gray;
+            box-shadow: 0 0 3px black;
+            border-radius: 5px;
+            width: 100%;
+            height: 100px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            /* position: fixed; */
+            /* top: 0px; */
+            background-color: white;
+        }
+
+        .top .logo-name {
+            display: flex;
+            align-items: center;
+        }
+
+        .top .logo-image {
+            display: flex;
+            justify-content: center;
+            min-width: 45px;
+        }
+
+        .top .logo-img img {
+            width: 40px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .top .logo-name .logo-n {
+            font-size: 37px;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-left: 14px;
+            transition: var(--tran-05);
+        }
+
+        .top .search-box {
+            position: relative;
+            height: 45px;
+            max-width: 600px;
+            width: 100%;
+            margin: 0 30px;
+        }
+
+        .top .search-box input {
+            position: absolute;
+            border: 1px solid black;
+            background-color: white;
+            padding: 0 25px 0 50px;
+            border-radius: 5px;
+            height: 100%;
+            width: 100%;
+            color: black;
+            font-size: 15px;
+            font-weight: 400;
+            outline: none;
+        }
+
+        .top .search-box i {
+            position: absolute;
+            left: 15px;
+            font-size: 22px;
+            z-index: 10;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--black-light-color);
+        }
+
+        .top img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .container {
+            margin-top: 5px;
+            background-color: rgba(237, 235, 235, 0.893);
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .exam {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border: 1px solid black;
+            width: 900px;
+            background-color: white;
+            margin: 10px;
+        }
+
+        .head {
+            border-bottom: 1px solid gray;
+        }
+
+        .question {
+            /* border: 1px solid red; */
+            width: 900px;
+
+        }
+
+        .question-box {
+            /* border-top: 1px solid black; */
+            border-bottom: 1px solid black;
+            padding: 0 20px;
+            margin: 5px 20px;
+        }
+
+        .question-box p {
+            margin: 0px;
+            font-size: 1.5rem;
+            font-weight: 600;
+            border: 1px solid gray;
+        }
+
+        .ans-box {
+            border: 1px solid rgb(231, 226, 226);
+            font-size: 1.1rem;
+            font-weight: 500px;
+            border-radius: 4px;
+        }
+
+        #common {
+            width: 750px;
+            margin: 12px 0px;
+            text-align: left;
+            padding: 5px 20px;
+        }
+
+        .ans-box span {
+            margin-left: 15px;
+        }
+
+        .btn {
+            background-color: blue;
+            height: 40px;
+            width: 200px;
+            margin: 18px;
+            border-radius: 7px;
+            font-size: 1.2rem;
+
+        }
+
+        .showbox {
+            background-color: rgb(238, 46, 81);
+            height: 25px;
+            width: 200px;
+            margin: 5px;
+            border-radius: 7px;
+            font-size: 1.2rem;
+            margin-left: 43%;
+            margin-top: 20px;
+        }
+
+        .result {
+            position: absolute;
+            top: -200px;
+            left: 30%;
+            z-index: 99;
+            margin-top: 250px;
+            border: 1px solid red;
+            width: 550px;
+            height: 350px;
+            border-radius: 10px;
+            background-color: white;
+            display: none;
+        }
+
+        .result-card {
+            text-align: center;
+        }
+
+        .result-card span {
+            text-align: left;
+        }
+
+        .result-card h4 {
+            text-align: left;
+            padding-left: 20px;
+        }
+
+        .active {
+            display: block;
+        }
+
+        .btn-section {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .popbtn {
+            background-color: rgb(238, 46, 81);
+            height: 25px;
+            width: 200px;
+            margin: 5px;
+            border-radius: 7px;
+            /* font-size: 1.2rem; */
+            padding: 5px;
+        }
+        /* .div{
+            border: 1px solid rgb(208, 195, 195);
+            width: 80%;
+            margin: 40px auto;
+            height: 350px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 13px;
+            box-shadow: 0 0 5px rgb(169, 166, 166);
+        } */
+    </style>
+</head>
+
+<body id="body">
+    <div class="dashboard">
+        <div class="top">
+            <div class="logo-name">
+                <div class="logo-img">
+                    <img src="/static/main.logo-1.png" alt="logo">
+                </div>
+                <span class="logo-n">Gurukul</span>
+            </div>
+            <div class="search-box">
+                <i class="uil uil-search"></i>
+                <input type="text" placeholder="Search here...">
+            </div>
+            <div>
+                <img src="{{user.sign_up_table.profile_pic.url}}" alt="">
+            </div>
+        </div>
+    </div>
+    {% for i in new %}
+    <div class="container">
+        <div class="exam">
+            <div class="card">
+                <div class="head">
+                    <h2>{{i.product_name}}</h2>
+                    <h4>Total Question : 15</h4>
+                    <h4>Total Marks : 15</h4>
+                    <h4>Passing Marks : 10</h4>
+
+                </div>
+
+                <!-- <div class="question">
+                    <form method='post'>
+
+                        {% csrf_token %}
+                        {% for q in questions%}
+                        <div class="question-box">
+                            <p id="common">Q.&nbsp;&nbsp;{{q.question}}</p>
+                            <div class="ans-box" id="common">
+                                <input type="radio" name="{{q.question}}" id="" value="option1" required ><span>{{q.op1}}</span>
+                            </div>
+                            <div class="ans-box" id="common">
+                                <input type="radio" name="{{q.question}}" id="" value="option2" required ><span>{{q.op2}}</span>
+                            </div>
+                            <div class="ans-box" id="common">
+                                <input type="radio" name="{{q.question}}" id="" value="option3" required ><span>{{q.op3}}</span>
+                            </div>
+                            <div class="ans-box" id="common">
+                                <input type="radio" name="{{q.question}}" id="" value="option4" required ><span>{{q.op4}}</span>
+                            </div>          
+                        </div>
+                        {% endfor %}
+                        <button type="submit" class="btn">Submit</button>
+                    </form>
+                </div> -->
+                <b><a href="/student/course/mycourse" style="margin: 5px;">Back to My Course</a></b>
+                {% endfor %}
+                <div class="result">
+                    <div class="result-card">
+                        <h2>{{status}}</h2>
+                        <span>Exam Details :</span>
+                        <h4>Total Question : &nbsp; &nbsp;{{total}}</h4>
+                        <h4>Your Score : &nbsp; &nbsp;{{score}}</h4>
+                        <h4>Correct Question : &nbsp; &nbsp;{{correct}}</h4>
+                        <h4>Wrong Question : &nbsp; &nbsp;{{wrong}}</h4>
+
+
+                        <b><a href="/student/course/mycourse" style="margin: 5px;">Back to My Course</a></b>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="div " style=" border: 1px solid rgb(208, 195, 195);
+    width: 80%;
+    margin: 40px auto;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 13px;
+    box-shadow: 0 0 5px rgb(169, 166, 166);">
+        <div class="container1 " style="text-align: center;">
+            <p style="font-size: 2rem; font-weight: bolder;">Congratulations!</p>
+            <p>You have successfully completed the <i><b style="color: blue;">{{cname}}</b></i> &nbsp; Course.</p>
+            <button type="button" class="popbtn" class="showbox" onclick="dcheck()" style="background-color: rgb(80, 237, 80);height: 30px; border: none; font-weight: bold;">
+                Download Certificate
+            </button>
+
+        </div>
+    </div>
+
+
+    <div class="certificate" id="main" style="border: 1px solid red;
+    max-width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;">
+        <div class="card1" style="background-image: url(/static/Certificationbg.jpg);
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        border: 1px solid black;
+        width: 900px;
+        text-align: center;
+        padding: 20px;
+        margin: 20px;">
+            <h1 style="margin-top: 50px;
+            margin-bottom: 0;
+            font-size: 3rem;
+            font-family: Bona Nova SC, serif;
+            font-weight: 400;
+            font-style: normal;">CERTIFICATE</h1>
+            <h2 style="margin: 0;">OF COMPLETION</h2>
+            <h3 style="margin: 0;">IS PRESENTED TO </h3>
+
+            <div class="name" style="margin: 0;">
+                <h1 id="username">YOUR NAME</h1>
+            </div>
+            <P>for successfully completing a free online course</P>
+
+            <div class="course_name">
+                <h2 id="coursename">COURSE NAME</h2>
+            </div>
+            <div class="vip" style="display: flex; justify-content: center;">
+                <div class="div" style="margin: 0 20px;">
+                    <h4>Aniket Chandiwade</h4>
+                    <p>CEO of Gurukul E-learning</p>
+                </div>
+                <div class="div" style="margin: 0 20px;">
+                    <h4>Ritanshu Mahajan</h4>
+                    <p>Chairman of Gurukul E-learning</p>
+                </div>
+            </div>
+            <div class="footer">
+                <p>Provided By</p>
+                <h3>Gurukul E-learning</h3>
+            </div>
+        </div>
+    </div>
+    <div class="input_feild" style="display:none;">
+        <!-- {{user.first_name}}{{user.last_name}} -->
+        <input type="text" name="" id="fname" value="{{user.first_name}}&nbsp;&nbsp;{{user.last_name}}">
+        <input type="text" name="" id="fdetails" value="{{cname}}">
+
+    </div>
+
+    <script>
+        const result = document.querySelector(".result");
+        const showbtn = document.querySelector(".showbox");
+        // const reexam = document.querySelector("#reexam");
+        // const download = document.querySelector("#download");
+
+        showbtn.addEventListener("click", () => {
+            result.classList.add("active");
+        });
+
+
+
+
+        function ecertificate() {
+            var x = document.getElementById("main");
+            // x.style.display = "block";
+            var name = document.getElementById('fname').value;
+            var details = document.getElementById('fdetails').value;
+            // var oname = document.getElementById('forganisername').value;
+            document.getElementsByTagName('h1')[1].innerHTML = name;
+            document.getElementsByTagName('h2')[2].innerHTML = details;
+            // document.getElementsByTagName('h5')[0].innerHTML = oname;
+
+            // document.getElementById('username')[0].innerHTML=name;
+            // document.getElementById('coursename')[0].innerHTML=details;
+        }
+        function dcheck() {
+            var input = document.getElementById('fname');
+            if (input.value !== "") {
+                ecertificate();
+                download();
+
+            }
+            else {
+                alert("Input field is empty.");
+            }
+        }
+        function download() {
+
+            var body = document.getElementById('body').innerHTML;
+            var main = document.getElementById('main').innerHTML;
+            document.getElementById('body').innerHTML = main;
+            window.print();
+            // document.getElementById('body').innerHTML = body;
+            window.location = "http://127.0.0.1:8000/student/course/mycourse"
+
+        }
+
+    </script>
+</body>
+
+</html>

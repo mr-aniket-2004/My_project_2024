@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #nav {
+            margin: 0;
+            padding: 0;
+            color: black;
+
+        }
+
+        .left-nav {
+            min-width: 0;
+            max-width: 55px;
+            transition: all .5s;
+            overflow: hidden;
+        }
+
+        .left-nav.active {
+            float: left;
+            max-width: 300px;
+        }
+
+        .right-side {
+            max-width: 100%;
+            padding: 10px;
+            border: 1px solid rgb(210, 209, 209);
+            box-shadow: 0 0 5px aqua;
+            margin: 10px;
+            background-color: #fff;
+            border-radius: 18px;
+            min-height: 80vh;
+        }
+
+        #nav>li {
+            width: 300px;
+        }
+
+        .profile {
+            max-width: 350px;
+        }
+
+        .top {
+            /* border: 2px solid red; */
+            max-width: 1500px;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+
+
+        #products {
+            display: grid;
+            grid-template-columns: auto auto auto;
+            grid-column-gap: 1.5em;
+            padding: 2em 0;
+
+        }
+
+        .card {
+            background-color: #ffffff;
+            max-width: 25em;
+            margin-top: 1em;
+            padding: 1em;
+            border-radius: 10px;
+            box-shadow: 0em 0em 2em rgba(113, 203, 238, 0.578);
+            margin-left: 30px;
+            border: 1px solid rgba(0, 0, 0, 0.172);
+        }
+
+        .image-container {
+            text-align: center;
+        }
+
+        img {
+            max-width: 100%;
+            object-fit: cover;
+            object-position: 0;
+            height: 15em;
+            border-radius: 15px;
+        }
+
+        .container {
+            padding-top: 1em;
+            color: #110f29;
+        }
+
+        .container h5 {
+            font-weight: 500;
+        }
+
+        .container h6 {
+            margin: 10px 0px;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .container>a {
+            text-align: center;
+            border: 1px solid aqua;
+            padding: 7px 10px;
+            display: block;
+            width: 130px;
+            background-color: #fff;
+            border-radius: 9px;
+            transition: all .5s;
+            font-size: medium;
+            font-weight: 500;
+
+        }
+
+        .container>a:hover {
+            transform: scale(1.1);
+            background-color: rgba(13, 240, 240, 0.354);
+            color: black;
+        }
+
+        .container>p {
+            text-decoration: none;
+
+            font-weight: 400;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top ">
+        <div class="logo-m" style="margin-left: 10px;">
+            <img src="/static/main.logo-1.png" alt="" style="width: 100px; height: 100px;">
+        </div>
+        <h2 class="name" style="margin-left: 50px;">Welcome to GURUKUL ADMIN PANEL</h2>
+        <div class="search d-flex"
+            style="border: 1px solid gray; max-width: 600px; justify-content: space-between;align-items: center;padding: 10px 20px;border-radius: 12px; float: right;margin-left: 200px;">
+            <input type="text" name="" id="" placeholder="search anything here" style=" border: none;max-width: 600px;">
+            <i class='bx bx-search'></i>
+        </div>
+        <div class="notification " style="margin-left: 10px;">
+            <i class='bx bxs-bell' style="font-size: 2rem;color: rgb(149, 149, 6);"></i>
+        </div>
+        <div class="logout d-flex">
+            <div class="picon" style="font-size: 2.5rem;">
+                <a href=""><i class='bx bx-user-circle'></i></a>
+            </div>
+
+        </div>
+
+
+    </div>
+    <div class="main-body d-flex" style=" max-width: 100%;">
+        <div class="left-nav " id="left-nav">
+            <div class="close" id="close-btn" style="padding-left: 12px;">
+                <i class='bx bx-list-ul' style="font-size: 2rem;"></i>
+            </div>
+            <ul class="list-group list-group-flush" id="nav">
+                <li class="list-group-item"><a href="" class="d-flex" style="text-decoration: none;"><span class="icon"
+                            style="margin-right: 20px;  color: black; font-size: 1.5rem;"><i
+                                class='bx bxs-dashboard'></i></span>
+                        <p style="color: black; ">Dashboard</p>
+                    </a></li>
+                <li class="list-group-item"><a href="couser" class="d-flex" style="text-decoration: none;"><span
+                            class="icon" style="margin-right: 20px; color: black; font-size: 1.5rem;"><i
+                                class='bx bxs-food-menu'></i></span>
+                        <p style="color: black; ">Courses</p>
+                    </a></li>
+                <li class="list-group-item"><a href="" class="d-flex" style="text-decoration: none;"><span class="icon"
+                            style="margin-right: 20px; color: black; font-size: 1.5rem;"><i
+                                class='bx bxs-user'></i></span>
+                        <p style="color: black; ">Teacher</p>
+                    </a></li>
+                <li class="list-group-item"><a href="" class="d-flex" style="text-decoration: none;"><span class="icon"
+                            style="margin-right: 20px; color: black; font-size: 1.5rem;"><i
+                                class='bx bxs-user'></i></span>
+                        <p style="color: black; ">Student </p>
+                    </a></li>
+                <li class="list-group-item"><a href="/log" class="d-flex" style="text-decoration: none;"><span
+                            class="icon" style="margin-right: 20px; color: black; font-size: 1.5rem;"><i
+                                class='bx bx-log-out'></i></span>
+                        <p style="color: black; ">Logout </p>
+                    </a></li>
+
+            </ul>
+        </div>
+        <div class="right-side">
+
+
+            <div class="main-title">
+                <h1>All Courses</h1>
+                <!-- <button
+                    style="border: 1px solid black; width: 250px; justify-content: center; align-items: center;  height: 40px; border-radius: 17px;">
+                    <div class="addbtn d-flex "
+                        style="border: 1px solid black; max-width: 250px; justify-content: center; align-items: center; padding-top: 15px; height: 40px; border-radius: 17px;">
+                        <p class="icon px-2 " style="font-size: 1.5rem;">
+                            <i class='bx bxs-add-to-queue'></i>
+                        </p>
+                        <p class="tagname ">Add Course</p>
+                    </div>
+                </button> -->
+
+
+            </div>
+
+            <div id="products">
+                {% for cour in cour %}
+                <div class="card ">
+                    <div class="imgContainer">
+                        <img src="{{cour.img.url}}" alt="">
+                    </div>
+                    <div class="container">
+                        <h5 class="product_name">{{cour.product_name}}</h5>
+                        <h6 class=" price ">{{cour.price}}</h6>
+                        <p class=" duration">{{cour.duration}}</p>
+                        <p>{{cour.info}}</p>
+                        <a href="{{cour.button}}" aria-disabled="true">Enroll Now</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+
+
+            <div>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque odit quasi libero alias repudiandae
+                tempora quis accusantium, deleniti, atque illo reprehenderit, soluta porro dignissimos blanditiis
+                quaerat cupiditate ab ex optio!</div>
+
+        </div>
+
+
+
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <!-- <form method="post" action="{% url 'log' %}">
+            {% csrf_token %}
+            <input type="submit" value="log out">
+        </form></li> -->
+    <script>
+        const btn = document.getElementById('close-btn');
+        const main = document.getElementById('left-nav');
+        btn.addEventListener('click', function () {
+            main.classList.toggle('active')
+        });
+    </script>
+
+</body>
+
+</html>

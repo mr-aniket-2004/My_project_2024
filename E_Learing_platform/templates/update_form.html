@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Update Profile</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <style>
+    body{
+      background-image: url(../static/log-sign.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+    .form-box {
+      /* border: 2px solid red; */
+      padding: 20px;
+      max-width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .main-body{
+      max-width: 1000px;
+      border: 1px solid gray;
+      background-color: rgba(254, 251, 251, 0.133);
+      border-radius: 26px;
+      box-shadow: 0 0 20px aqua;
+    }
+    label{
+      color: white;
+    }
+    form {
+      max-width: 900px;
+      padding: 50px;
+    }
+    @media screen and (max-width :700px) {
+      #profile-photo{
+        display: block;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1 style="text-align: center; color: aqua; padding-top: 20px; text-decoration: underline;">Update Your Profile</h1>
+  <div class="form-box">
+    <div class="main-body">
+      <form class="row g-3" action=" {% url "update_info" %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% if status %}
+          <!-- <div class="alert alert-primary" style="text-align: center;">{{status}}</div> -->
+          <script>
+            alert("{{status}}");
+            window.location ="student"
+        </script>
+        {% endif %}
+        <div class="profile-photo " style=" display: flex; align-items: center; justify-content: space-evenly;" id="profile-photo">
+          <div class="img-icon">
+            <img src="{{data.profile_pic.url}}" alt="" style="height: 200px;width: 200px;border-radius: 50%;">
+          </div>
+          <div class="input-group mb-3" style="height: 20px;max-width: 500px;">
+            <input type="file" class="form-control" id="inputGroupFile02" name="profile-photo">
+            <!-- <label class="input-group-text" for="inputGroupFile02">Upload</label> -->
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <label for="inputEmail4" class="form-label">User Name</label>
+          <input type="text" class="form-control" id="inputEmail4" name="username" value="{{user.username}}">
+        </div>
+        <div class="col-md-6">
+          <label for="inputPassword4" class="form-label">Email</label>
+          <input type="text" class="form-control" id="inputPassword4" name="Email" value="{{user.email}}">
+        </div>
+        <div class="col-md-6">
+          <label for="inputEmail4" class="form-label">Frist_Name</label>
+          <input type="text" class="form-control" id="inputEmail4" name="Frist_Name" value="{{user.first_name}}">
+        </div>
+        <div class="col-md-6">
+          <label for="inputPassword4" class="form-label">Last_Name</label>
+          <input type="text" class="form-control" id="inputPassword4" name="Last_Name" value="{{user.last_name}}">
+        </div>
+        <div class="col-12">
+          <label for="inputAddress" class="form-label">Address</label>
+          <input type="text" class="form-control" id="inputAddress" placeholder="Enter your Address" name="Address" value="{{data.add}}">
+        </div>
+        <div class="col-md-6">
+          <label for="inputCity" class="form-label">City</label>
+          <input type="text" class="form-control" id="inputCity" placeholder="Enter City Name" name="City" value="{{data.city_name}}">
+        </div>
+        <div class="col-md-4">
+          <label for="inputState" class="form-label">State</label>
+          <input type="text" class="form-control" id="inputCity" placeholder="Enter City Stata" name="State" value="{{data.state}}">
+        </div>
+        <div class="col-md-2">
+          <label for="inputZip" class="form-label">Pincode</label>
+          <input type="text" class="form-control" id="inputZip" name="Pincode" value="{{data.pincode}}">
+        </div>
+        <div class="col-md-6">
+          <label for="inputEmail4" class="form-label"> Mobile No :</label>
+          <input type="number" class="form-control" id="inputEmail4" name="no" value="{{data.mobile}}">
+        </div>
+        <div class="col-md-6">
+          <label for="inputEmail4" class="form-label">Parent Mobile No :</label>
+          <input type="text" class="form-control" id="inputEmail4" name="p_no" value="{{data.p_mobile}}">
+        </div>
+        <div class="col-12">
+          <label for="inputAddress" class="form-label">Highest Qualification :</label>
+          <input type="text" class="form-control" id="inputAddress" placeholder="Enter your Qualification" name="Qualification" value="{{data.qualification}}">
+        </div>
+        <div class="col-12">
+          <label for="inputAddress" class="form-label">College or Univercity Name</label>
+          <input type="text" class="form-control" id="inputAddress" placeholder="Enter College or Univercity Name" name="College" value="{{data.collge_name}}">
+        </div>
+
+
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

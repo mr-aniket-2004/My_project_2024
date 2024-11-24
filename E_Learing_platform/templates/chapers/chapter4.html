@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 4</title>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        .top {
+            border: 1px solid gray;
+            box-shadow: 0 0 3px black;
+            border-radius: 5px;
+            width: 100%;
+            height: 100px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            position: fixed;
+            top: 0px;
+            background-color: white;
+        }
+
+        .top .logo-name {
+            display: flex;
+            align-items: center;
+        }
+
+        .top .logo-image {
+            display: flex;
+            justify-content: center;
+            min-width: 45px;
+        }
+
+        .top .logo-img img {
+            width: 40px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .top .logo-name .logo-n {
+            font-size: 37px;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-left: 14px;
+            transition: var(--tran-05);
+        }
+
+        .top .search-box {
+            position: relative;
+            height: 45px;
+            max-width: 600px;
+            width: 100%;
+            margin: 0 30px;
+        }
+
+        .top .search-box input {
+            position: absolute;
+            border: 1px solid black;
+            background-color: white;
+            padding: 0 25px 0 50px;
+            border-radius: 5px;
+            height: 100%;
+            width: 100%;
+            color: black;
+            font-size: 15px;
+            font-weight: 400;
+            outline: none;
+        }
+
+        .top .search-box i {
+            position: absolute;
+            left: 15px;
+            font-size: 22px;
+            z-index: 10;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--black-light-color);
+        }
+
+        .top img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .container {
+            margin-top: 120px;
+            background-color: rgba(237, 235, 235, 0.893);
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .course-card {
+            border: 1px solid rgb(249, 246, 246);
+            width: 1200px;
+            background-color: white;
+            border-radius: 8px;
+            margin-top: 20px;
+            padding: 10px 0px;
+            border: 1px solid gray;
+        }
+
+        .course-box {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .course-img {
+            width: 150px;
+            height: auto;
+            margin-right: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .course-img img {
+            width: 100%;
+            border-radius: 9px;
+        }
+
+        .course-status button {
+            width: 100px;
+            height: 30px;
+            background-color: #0E4BF1;
+            border: none;
+            border-radius: 8px;
+            color: var(--text-color);
+            font-weight: 600;
+        }
+
+        .course-content {
+            border: 1px solid gray;
+            width: 1200px;
+            background-color: white;
+            border-radius: 5px;
+            margin-top: 20px;
+            padding: 10px 0px;
+        }
+
+        .title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        .main-content{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .main-content h1{
+            text-align: center;
+            
+        }
+        .main-content video{
+            border-radius: 15px;
+        }
+
+        .footer {
+            text-align: center;
+            margin: 20px;
+            font-size: 1.01rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dashboard">
+        <div class="top">
+            <div class="logo-name">
+                <div class="logo-img">
+                    <img src="/static/main.logo-1.png" alt="logo">
+                </div>
+                <span class="logo-n">Gurukul</span>
+            </div>
+            <div class="search-box">
+                <i class="uil uil-search"></i>
+                <input type="text" placeholder="Search here...">
+            </div>
+            <div>
+                <img src="{{user.sign_up_table.profile_pic.url}}" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="course-main">
+            <div class="course-card">
+                {% for i in main %}
+                <div class="course-box">
+                    <div class="course-img">
+                        <img src="{{i.img.url}}" alt="">
+                    </div>
+                    <div class="course-name">
+                        <h2>{{i.product_name}}</a></h2>
+                        <P>Gurukul E-learning Academy</P>
+                    </div>
+
+
+                </div>
+                {% endfor %}
+
+
+            </div>
+            <div class="course-content">
+                <div class="title">
+                    <h2>Course Content</h2>
+                    <h3><a href="/student/course/mycourse/temp/python-programming">Back to Learing Page</a></h3>
+                </div>
+                <div class="main-content">
+                    {% for i in main %}
+                        <div>
+                            <h1>{{i.chapter4}}</h1>
+                            <video width="800px" height="500px" controls>
+                                <source src="{{i.video4.url}}" type="video/mp4">
+                            </video>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="footer">
+
+                <span>&copy; All Content Reserve to Gurukul E-learning </span>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

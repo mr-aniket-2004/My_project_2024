@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="../static/css/home.css">
+    <link rel="stylesheet" href="../static/css/login.css">
+</head>
+
+<body>
+    <header>
+        <nav class="header-nav container flex-container">
+            <h1 class="logo"><a class="logo-link" href="#"><img src="/static/main.logo-1.png" alt=""></a></h1>
+            <ul class="header-menu flex-container">
+                <li><a class="header-menu-link" href="/home">Home</a></li>
+                <li><a class="header-menu-link" href="/about">Courses</a></li>
+                <li><a class="header-menu-link" href="/community">Community</a></li>
+                <li><a class="header-menu-link" href="/contact-us">Contact us</a></li>
+            </ul>
+            <div class="nav-btn">
+                <button class="ghost-button"><a href="/log"> Log in</a> </button>
+                <button class="ghost-button"><a href="/sign"> Sign UP</a> </button>
+            </div>
+        </nav>
+    </header>
+
+    <div class="singup">
+        <div class="singup-box">
+            <div class="singup-card">
+                <div class="card-right">
+                    <form method="post" action="{% url 'log' %}">
+                        {% csrf_token %}
+                        <h1>Log In </h1>
+                        <div class="social-icons">
+                            <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                            <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                            <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                        </div>
+                        {% if info %}
+                        <p style="color: red; font-weight: bold;">{{info}}</p>
+
+                        {% endif %}
+                        <span>use your email for login</span>
+                        <input type="text" placeholder="Email" name="username" required>
+                        <input type="password" placeholder="Password" name="password" required>
+                        <button type="submit">Log In</button>
+
+                    </form>
+                </div>
+                <div class="card-left">
+                    <div class="temp">
+                        <h2 class="c-title">
+                            Welcome Back!
+                        </h2>
+                        <p>Enter your personal details to use all of site features</p>
+                        <button><a href="/sign"> Sign Up </a></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer">
+            <div class="inner-footer">
+
+                <!--  for company name and description -->
+                <div class="footer-items">
+                    <h1>GURUKUL</h1>
+                    <p>Start Learing and Embrace New Skill for Better Future!</p>
+                </div>
+
+                <!--  for quick links  -->
+                <div class="footer-items">
+                    <h3>Quick Links</h3>
+                    <div class="border1"></div> <!--for the underline -->
+                    <ul>
+                        <a href="">
+                            <li>Home</li>
+                        </a>
+                        <a href="/about">
+                            <li>Courses</li>
+                        </a>
+                        <a href="community/">
+                            <li>Community</li>
+                        </a>
+                        <a href="contact-us/">
+                            <li>Contact Us</li>
+                        </a>
+                    </ul>
+                </div>
+
+                <!--  for some other links -->
+                <div class="footer-items">
+                    <h3>Login </h3>
+                    <div class="border1"></div> <!--for the underline -->
+                    <ul>
+                        <a href="log/">
+                            <li>Log In</li>
+                        </a>
+                        <a href="log/">
+                            <li>Sign up</li>
+                        </a>
+                    </ul>
+                </div>
+
+                <!--  for contact us info -->
+                <div class="footer-items">
+                    <h3>Contact us</h3>
+                    <div class="border1"></div>
+                    <ul>
+                        <li><a href=""><ion-icon name="location-outline" class="icon"></ion-icon>Pune, Maharashtra</a>
+                        </li>
+                        <li><a href=""><ion-icon name="call-outline" class="icon"></ion-icon> +91 1234567809</a></li>
+                        <li><a href=""><ion-icon name="mail-outline" class="icon"></ion-icon>sem5project@gmail.com</a>
+                        </li>
+                    </ul>
+
+                    <!--   for social links -->
+                    <div class="social-media">
+                        <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+                        <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+                        <a href="#"><ion-icon name="logo-youtube"></ion-icon></a>
+                    </div>
+                </div>
+            </div>
+
+            <!--   Footer Bottom start  -->
+            <div class="footer-bottom">
+                Copyright &copy; Gurukul- The E-Learing platform 2024.
+            </div>
+        </div>
+
+    </footer>
+</body>
+
+</html>

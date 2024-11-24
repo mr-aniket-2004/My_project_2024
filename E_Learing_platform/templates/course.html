@@ -1,0 +1,160 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Courses</title>
+    <link rel="stylesheet" href="../static/css/home.css">
+    <link rel="stylesheet" href="../static/css/course.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <header>
+        <nav class="header-nav container flex-container">
+            <h1 class="logo"><a class="logo-link" href="#"><img src="/static/main.logo-1.png" alt=""></a></h1>
+            <ul class="header-menu flex-container">
+                <li><a class="header-menu-link" href="/home">Home</a></li>
+                <li><a class="header-menu-link" href="/about">Courses</a></li>
+                <li><a class="header-menu-link" href="/community">Community</a></li>
+                <li><a class="header-menu-link" href="/contact-us">Contact us</a></li>
+            </ul>
+            <div class="nav-btn">
+                <button class="ghost-button"><a href="/log"> Log in</a> </button>
+                <button class="ghost-button"><a href="/sign"> Sign UP</a> </button>
+            </div>
+        </nav>
+    </header>
+
+
+
+    <div class="course-wrapper">
+        <div class="bg">
+            <form method="get" action="">
+                <div id="search-container">
+                    <input type="search" name="put" placeholder="Search product name here.." />
+                    <button id="search" type="submit">Search</button>
+                </div>
+            </form>
+    
+        </div>
+    </div>
+    <div id="products">
+        {% for cour in cour %}
+        <div class="card ">
+            <div class="imgContainer">
+                <img src="{{cour.img.url}}" alt="">
+            </div>
+            <div class="container">
+                <h5 class="product_name">{{cour.product_name}}</h5>
+                <h6 class=" price ">{{cour.price}}</h6>
+                <p class=" duration">{{cour.duration}}</p>
+                <p>{{cour.info}}</p>
+                <a href="{{cour.button}}">Enroll Now</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    </div>
+    <!-- Script -->
+    <script>
+        document.getElementById("search").addEventListener("click", () => {
+            let searchinput = document.getElementById("search-input").value;
+            let element = document.querySelectorAll(".product_name");
+            let cards = document.querySelectorAll(".card");
+            element.forEach((element, index) => {
+                if (element.innerHTML.icludes(searchinput.toUpperCase())) {
+                    cards[index].classList.remove("hide");
+                } else {
+                    cards[index].classList.add("hide");
+                }
+            });
+        });
+    </script>
+
+
+
+    <footer>
+        <div class="footer">
+            <div class="inner-footer">
+
+                <!--  for company name and description -->
+                <div class="footer-items">
+                    <h1>GURUKUL</h1>
+                    <p>Start Learing and Embrace New Skill for Better Future!</p>
+                </div>
+
+                <!--  for quick links  -->
+                <div class="footer-items">
+                    <h3>Quick Links</h3>
+                    <div class="border1"></div> <!--for the underline -->
+                    <ul>
+                        <a href="/home">
+                            <li>Home</li>
+                        </a>
+                        <a href="#">
+                            <li>Courses</li>
+                        </a>
+                        <a href="/community">
+                            <li>Community</li>
+                        </a>
+                        <a href="/contact-us">
+                            <li>Contact Us</li>
+                        </a>
+                    </ul>
+                </div>
+
+                <!--  for some other links -->
+                <div class="footer-items">
+                    <h3>Login </h3>
+                    <div class="border1"></div> <!--for the underline -->
+                    <ul>
+                        <a href="/log">
+                            <li>Log In</li>
+                        </a>
+                        <a href="/sign">
+                            <li>Sign up</li>
+                        </a>
+                    </ul>
+                </div>
+
+                <!--  for contact us info -->
+                <div class="footer-items">
+                    <h3>Contact us</h3>
+                    <div class="border1"></div>
+                    <ul>
+                        <li><a href=""><ion-icon name="location-outline" class="icon"></ion-icon>Pune, Maharashtra</a>
+                        </li>
+                        <li><a href=""><ion-icon name="call-outline" class="icon"></ion-icon> +91 1234567809</a></li>
+                        <li><a href=""><ion-icon name="mail-outline" class="icon"></ion-icon>sem5projext@gmail.com</a>
+                        </li>
+                    </ul>
+
+                    <!--   for social links -->
+                    <div class="social-media">
+                        <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+                        <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+                        <a href="#"><ion-icon name="logo-youtube"></ion-icon></a>
+                    </div>
+                </div>
+            </div>
+
+            <!--   Footer Bottom start  -->
+            <div class="footer-bottom">
+                Copyright &copy; Gurukul- The E-Learing platform 2024.
+            </div>
+        </div>
+
+    </footer>
+
+
+
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

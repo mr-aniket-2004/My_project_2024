@@ -1,0 +1,519 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* font-family: 'Poppins', sans-serif; */
+  font-family: "Montserrat", sans-serif;
+
+}
+
+.main {
+  max-height: 100%;
+  max-width: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.bg {
+  height: 90vh;
+  background-image: url('../cummunity-bg.jpg');
+  /* background-position: center; */
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-width: 100%;
+}
+
+.contact-title {
+  font-size: 4rem;
+  color: white;
+  margin-left: 20px;
+  font-weight: 900;
+  font-family: "Merienda", cursive;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+}
+
+.contact-title i {
+  color: red;
+  font-family: "Merienda", cursive;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+  filter: drop-shadow(0 0 5px yellow);
+  font-family: "Merienda", cursive;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+}
+
+.c-container p {
+  /* max-width: 50%; */
+  color: white;
+  font-size: 1.2rem;
+  margin-left: 25px;
+}
+
+#name {
+  text-decoration: underline;
+  color: red;
+  font-weight: 600;
+}
+
+.c-container {
+  padding: 50px 10px;
+  margin-left: 25px;
+  max-width: 55%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.553);
+  background-color: rgba(0, 0, 0, 0.214);
+}
+
+/* start responsive */
+
+@media screen and (max-width:1250px) {
+  .c-container {
+    max-width: 80%;
+  }
+
+  .bg {
+    background-position: center;
+  }
+}
+
+@media screen and (max-width:600px) {
+  .contact-title {
+    font-size: 2rem;
+    color: white;
+    margin-left: 10px;
+    font-weight: 900;
+    max-width: 100%;
+  }
+
+}
+
+
+/* feature css start here  */
+
+.feature {
+  max-width: 100%;
+  background-color: rgba(109, 231, 240, 0.214);
+}
+
+.feature>h2 {
+  font-size: 2rem;
+  text-align: center;
+  margin: 10px;
+  font-weight: 600;
+}
+
+.f-row {
+  max-width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.f-card {
+  border: 1px solid aqua;
+  border-radius: 12px;
+  max-width: 25%;
+  margin: 30px 0px;
+  box-shadow: 0 0 10px aqua;
+  background-color: white;
+  transition: all .5s;
+}
+
+.f-card:hover {
+  transform: scale(1.03);
+}
+
+.f-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+}
+
+.f-img img {
+  max-width: 100%;
+  height: 300px;
+  border-radius: 12px;
+}
+
+.f-title {
+  text-align: center;
+}
+
+.f-info {
+  padding: 0px 13px;
+}
+
+/* responsive for feature start here */
+
+@media screen and (max-width:1200px) {
+  .f-card {
+    max-width: 30%;
+  }
+}
+
+@media screen and (max-width:1000px) {
+
+
+  .f-card {
+    max-width: 30%;
+  }
+
+  .f-img img {
+    height: 250px;
+    width: 250px;
+  }
+}
+
+@media screen and (max-width:850px) {
+
+  .f-card {
+    max-width: 30%;
+  }
+
+  .f-img img {
+    height: 200px;
+    width: 200px;
+  }
+}
+
+@media screen and (max-width:700px) {
+  .f-row {
+    max-width: 100%;
+    display: block;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .f-card {
+    margin: 20px auto;
+    max-width: 70%;
+  }
+
+  .f-img img {
+    height: 200px;
+    width: 200px;
+  }
+}
+
+
+/* teachers slidder css start here  */
+.t-title {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 2.2rem;
+  color: #c46e1f;
+}
+
+.teacher {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+}
+
+.slide-container {
+  max-width: 1120px;
+  width: 100%;
+  padding: 40px 50px;
+
+}
+
+.slide-content {
+  margin: 0 40px;
+  overflow: hidden;
+  border-radius: 25px;
+  height: 450px;
+}
+
+.card {
+  border: 1px solid black;
+  border-radius: 25px;
+  background-color: #FFF;
+  box-shadow: 0 0 15px rgba(46, 211, 236, 0.839);
+
+}
+
+.image-content,
+.card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 14px;
+}
+
+.image-content {
+  position: relative;
+  row-gap: 5px;
+  padding: 25px 0;
+}
+
+.overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #4070F4;
+  border-radius: 25px 25px 0 25px;
+}
+
+.overlay::before,
+.overlay::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: -40px;
+  height: 40px;
+  width: 40px;
+  background-color: #4070F4;
+}
+
+.overlay::after {
+  border-radius: 0 25px 0 0;
+  background-color: #FFF;
+}
+
+.card-image {
+  position: relative;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  background: #FFF;
+  padding: 3px;
+}
+
+.card-image .card-img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #4070F4;
+}
+
+.name {
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+}
+
+.description {
+  font-size: 14px;
+  color: #707070;
+  text-align: center;
+}
+
+.button {
+  border: none;
+  font-size: 16px;
+  color: #FFF;
+  padding: 8px 16px;
+  background-color: #4070F4;
+  border-radius: 6px;
+  margin: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  background: #265DF2;
+}
+
+.swiper-navBtn {
+  color: #6E93f7;
+  transition: color 0.3s ease;
+}
+
+.swiper-navBtn:hover {
+  color: #4070F4;
+}
+
+.swiper-navBtn::before,
+.swiper-navBtn::after {
+  font-size: 35px;
+}
+
+.swiper-button-next {
+  right: 0;
+}
+
+.swiper-button-prev {
+  left: 0;
+}
+
+.swiper-pagination-bullet {
+  background-color: #6E93f7;
+  opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #4070F4;
+}
+
+@media screen and (max-width: 768px) {
+  .slide-content {
+    margin: 0 10px;
+  }
+
+  .swiper-navBtn {
+    display: none;
+  }
+}
+
+
+
+/* student reviews css  */
+
+.student-feedback {
+  max-width: 100%;
+  min-height: 80vh;
+  margin: auto auto;
+  background-color: #1f1f22f4;
+  color: white;
+
+}
+
+.student-tile {
+  /* text-align: center; */
+  margin: 20px 50px;
+  padding-top: 30px;
+  font-size: 2rem;
+}
+
+.s-row {
+  max-width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 20px;
+}
+
+.s-card {
+  max-width: 600px;
+  border-radius: 23px;
+}
+
+.s-content {
+  border: 1px solid black;
+  background-color: rgba(0, 0, 0, 0.402);
+  border-radius: 23px;
+  padding-bottom: 20px;
+}
+
+.f-line {
+  display: flex;
+  justify-content: left;
+  padding: 10px 20px;
+}
+
+.f-line h3 {
+  margin-left: 20px;
+}
+
+.s-icon {
+  color: white;
+  font-size: 2rem;
+}
+
+.s-line {
+  margin-left: 20px;
+  color: white;
+}
+
+.star-icon {
+  margin-left: 20px;
+  color: yellow;
+}
+
+.s-id {
+  margin: 20px 10px;
+  display: flex;
+}
+
+.s-profile {
+  height: 55px;
+  width: 55px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.s-profile img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+.s-info {
+  margin-left: 15px;
+  color: white;
+}
+
+.s-info>p {
+  color: white;
+}
+
+
+@media screen and (max-width:1250px) {
+  .s-card {
+    max-width: 500px;
+    border-radius: 23px;
+  }
+}
+
+@media screen and (max-width:1100px) {
+  .s-card {
+    max-width: 450px;
+    border-radius: 23px;
+  }
+}
+
+@media screen and (max-width:950px) {
+  .s-card {
+    max-width: 400px;
+    border-radius: 23px;
+  }
+}
+
+@media screen and (max-width:850px) {
+  .s-card {
+    max-width: 350px;
+    border-radius: 23px;
+  }
+}
+
+@media screen and (max-width:750px) {
+  .s-row {
+    max-width: 100%;
+    padding: 20px;
+    display: block;
+  }
+
+  .s-card {
+    max-width: 600px;
+    border-radius: 23px;
+    margin: 50px 60px;
+  }
+}
+
+@media screen and (max-width:450px) {
+  .s-row {
+    max-width: 100%;
+    padding: 20px;
+    display: block;
+  }
+
+  .s-card {
+    max-width: 600px;
+    border-radius: 23px;
+    margin: 10px 20px;
+  }
+}

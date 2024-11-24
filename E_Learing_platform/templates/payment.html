@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Go To prime</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+        body {
+            background: #fff;
+            font-family: 'Open Sans', sans-serif;
+            min-height: 80vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .pageWrap {
+            text-align: center;
+        }
+
+        .pTxt {
+            font-size: 20px;
+        }
+
+        .pageWrap>a {
+            font-size: 35px;
+        }
+
+        .check i {
+            font-size: 10rem;
+            color: green;
+        }
+
+        .checkmark-circle {
+            width: 100px;
+            height: 100px;
+            position: relative;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .checkmark-circle .background {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: #2EB150;
+            position: absolute;
+        }
+
+        .checkmark-circle .checkmark {
+            border-radius: 5px;
+        }
+
+        .checkmark-circle .checkmark.draw:after {
+            -webkit-animation-delay: 100ms;
+            -moz-animation-delay: 100ms;
+            animation-delay: 100ms;
+            -webkit-animation-duration: 1s;
+            -moz-animation-duration: 1s;
+            animation-duration: 1s;
+            -webkit-animation-timing-function: ease;
+            -moz-animation-timing-function: ease;
+            animation-timing-function: ease;
+            -webkit-animation-name: checkmark;
+            -moz-animation-name: checkmark;
+            animation-name: checkmark;
+            -webkit-transform: scaleX(-1) rotate(135deg);
+            -moz-transform: scaleX(-1) rotate(135deg);
+            -ms-transform: scaleX(-1) rotate(135deg);
+            -o-transform: scaleX(-1) rotate(135deg);
+            transform: scaleX(-1) rotate(135deg);
+            -webkit-animation-fill-mode: forwards;
+            -moz-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+        }
+
+        .checkmark-circle .checkmark:after {
+            opacity: 1;
+            height: 75px;
+            width: 37.5px;
+            -webkit-transform-origin: left top;
+            -moz-transform-origin: left top;
+            -ms-transform-origin: left top;
+            -o-transform-origin: left top;
+            transform-origin: left top;
+            border-right: 15px solid white;
+            border-top: 15px solid white;
+            border-radius: 2.5px !important;
+            content: '';
+            left: 25px;
+            top: 75px;
+            position: absolute;
+        }
+
+        img {
+            /* border: 1px solid red; */
+            width: 300px;
+            height: 200px;
+
+        }
+        .print{
+            display: none;
+        }
+        .active{
+            display: block;
+        }
+
+        button {
+            width: 200px;
+            height: 30px;
+            border: none;
+            background-color: blue;
+            font-weight: bold;
+            font-size: 1.1rem;
+            border-radius: 12px;
+
+        }
+
+        @-webkit-keyframes checkmark {
+            0% {
+                height: 0;
+                width: 0;
+                opacity: 1;
+            }
+
+            20% {
+                height: 0;
+                width: 37.5px;
+                opacity: 1;
+            }
+
+            40% {
+                height: 75px;
+                width: 37.5px;
+                opacity: 1;
+            }
+
+            100% {
+                height: 75px;
+                width: 37.5px;
+                opacity: 1;
+            }
+        }
+
+        @-moz-keyframes checkmark {
+            0% {
+                height: 0;
+                width: 0;
+                opacity: 1;
+            }
+
+            20% {
+                height: 0;
+                width: 37.5px;
+                opacity: 1;
+            }
+
+            40% {
+                height: 75px;
+                width: 37.5px;
+                opacity: 1;
+            }
+
+            100% {
+                height: 75px;
+                width: 37.5px;
+                opacity: 1;
+            }
+        }
+
+        @keyframes checkmark {
+            0% {
+                height: 0;
+                width: 0;
+                opacity: 1;
+            }
+
+            20% {
+                height: 0;
+                width: 37.5px;
+                opacity: 1;
+            }
+
+            40% {
+                height: 75px;
+                width: 37.5px;
+                opacity: 1;
+            }
+
+            100% {
+                height: 75px;
+                width: 37.5px;
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="pageWrap">
+        <img src="/static/main.logo-1.png">
+        <div class="pTxt">
+            Payment Successful!
+            <br />
+            Thank you for your order.
+            <br />
+            Order id  -&nbsp;&nbsp; <b>{{order_id}}</b>
+            <br>
+            Payment id - &nbsp;&nbsp;<b>{{payment_id}}</b>
+        </div>
+        <div class="check">
+            <i class='bx bxs-check-circle'></i>
+        </div>
+        <br>
+        <button type="button" onclick="download()">Print</button>
+    </div>
+    <div class="print">
+        <div class="pageWrap">
+            <img src="/static/main.logo-1.png">
+            <div class="pTxt">
+                Payment Successful!
+                <br />
+                Thank you for your order.
+                <br />
+                Payment Security Code - 123456
+            </div>
+            <div class="check">
+                <i class='bx bxs-check-circle'></i>
+            </div>
+            <br>
+            <!-- <button type="button" onclick="download()">Print</button> -->
+        </div>
+    </div>
+
+
+
+<script>
+    
+    function download() {
+  // Get the body and main elements
+  const body = document.querySelector("body");
+  const main = document.querySelector(".print");
+
+  // Add active class to main
+  main.classList.add("active");
+
+  // Store original body HTML
+  const originalHTML = body.innerHTML;
+
+  // Replace body HTML with main HTML
+  body.innerHTML = main.innerHTML;
+
+  // Trigger print dialog
+  window.print();
+
+  // Restore original body HTML
+  body.innerHTML = originalHTML;
+  window.location = "http://127.0.0.1:8000/student/student"
+
+  // Remove active class from main
+  main.classList.remove("active");
+
+}
+
+
+</script>
+</body>
+
+</html>

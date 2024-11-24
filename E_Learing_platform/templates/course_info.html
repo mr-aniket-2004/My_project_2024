@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course info</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #0E4BF1;
+        }
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            border-bottom: 1px solid black;
+            box-shadow: 5px 0 5px black;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+            z-index: 99;
+        }
+
+        .logo-img {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100px;
+            width: 200px;
+            padding: 5px;
+        }
+
+        .logo-img img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .nav-title h1 {
+            font-size: 2rem;
+        }
+
+        .right {
+            margin-right: 20px;
+            width: 350px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .profile-pic {
+            width: 60px;
+            height: 60px;
+        }
+
+        .profile-pic img {
+            height: 100%;
+            width: 100%;
+            border-radius: 100%;
+        }
+
+        .btn {
+            width: 200px;
+            height: 40px;
+            background-color: #fff;
+            color: var(--primary-color);
+            border-radius: 17px;
+            border: 1px solid var(--primary-color);
+            /* box-shadow: 0 0 10px var(--primary-color); */
+            float: right;
+            transition: all .2s ease-in-out;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            background-color: var(--primary-color);
+        }
+
+        .btn a {
+            color: var(--text-color);
+            font-size: 1.2rem;
+
+        }
+
+        .main-title {
+            /* border: 1px solid red; */
+            background-image: url(../static/course-info-bg.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            /* height: 30vw; */
+        }
+
+        .contain {
+            /* border: 2px solid purple; */
+            max-width: 60%;
+            margin-left: 150px;
+            padding: 50px 10px;
+        }
+
+        .contain h1 {
+            font-size: 3rem;
+        }
+
+        .course-tagline {
+            font-size: 1.1rem;
+            color: rgb(42, 41, 41);
+            margin: 10px 0px;
+        }
+
+        .contain h3 {
+            font-size: 1.5rem;
+            margin: 10px 0px;
+        }
+
+        .teachername {
+            color: var(--primary-color);
+            font-style: italic;
+        }
+
+        .couser-highlights {
+            border: 1px solid rgba(192, 190, 190, 0.727);
+            max-width: 70%;
+            border-radius: 18px;
+            margin: 20px 0px;
+        }
+
+        .couser-highlights ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            align-items: center;
+            /* height: 80px; */
+        }
+
+        .highlights {
+            list-style: none;
+            text-align: center;
+            padding: 10px 50px;
+        }
+
+        .h-title {
+            font-size: 21px;
+            font-weight: 600;
+
+        }
+
+        .btn1 {
+            border: 1px solid var(--primary-color);
+            width: 350px;
+            height: 35px;
+            background-color: white;
+            border-radius: 8px;
+            margin: 15px auto;
+        }
+
+
+        .btn1 a {
+            color: #0E4BF1;
+            font-size: 15px;
+        }
+
+        #one {
+            border-left: 1px solid rgb(140, 138, 138);
+        }
+
+        .flow-box {
+            /* border: 1px solid red; */
+            max-width: 400px;
+            margin: 10px;
+            box-shadow: 0 0 5px rgb(106, 105, 105);
+            border-radius: 12px;
+            margin-right: 50px;
+            background-color: #fff;
+
+        }
+
+        .flow-img {
+            /* border: 2px solid purple; */
+            max-width: 90%;
+            display: block;
+            margin: 15px auto;
+
+        }
+
+        .flow-img img {
+            max-width: 100%;
+            border-radius: 12px;
+            /* box-shadow: 0 0 3px black; */
+        }
+
+        .flow-info {
+            display: block;
+            margin: auto auto;
+            text-align: center;
+        }
+
+        .flow-list ul {
+            display: flex;
+            /* flex-wrap: wrap; */
+            justify-content: space-evenly;
+            align-items: center;
+            border: 1px solid gray;
+            border-radius: 12px;
+            margin: 20px;
+        }
+
+        .flow-skill {
+            list-style: none;
+            padding: 10px;
+        }
+
+        .flow-icon {
+            font-size: 1.5rem;
+        }
+
+        .about p {
+            margin: 12px;
+            font-size: 19px;
+        }
+
+        .course-layout {
+            /* border: 1px solid red; */
+            background-color: aliceblue;
+            padding: 30px 10px;
+        }
+
+        .courses-container {
+            margin-left: 30px;
+            
+        }
+
+        .course {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            max-width: 100%;
+            margin: 20px;
+            overflow: hidden;
+            width: 900px;
+        }
+
+        .course h6 {
+            opacity: 0.6;
+            margin: 0;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .course h2 {
+            letter-spacing: 1px;
+            margin: 10px 0;
+        }
+
+        .course-preview {
+            background-color: #2A265F;
+            color: #fff;
+            padding: 30px;
+            max-width: 250px;
+        }
+
+        .course-preview a {
+            color: #fff;
+            display: inline-block;
+            font-size: 12px;
+            opacity: 0.6;
+            margin-top: 30px;
+            text-decoration: none;
+        }
+
+        .course-info {
+            padding: 30px;
+            position: relative;
+            width: 100%;
+        }
+
+        .progress-container {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            text-align: right;
+            width: 150px;
+        }
+
+        .progress {
+            background-color: #ddd;
+            border-radius: 3px;
+            height: 5px;
+            width: 100%;
+        }
+
+        .progress::after {
+            border-radius: 3px;
+            background-color: #2A265F;
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 5px;
+            width: 66%;
+        }
+
+        .progress-text {
+            font-size: 10px;
+            opacity: 0.6;
+            letter-spacing: 1px;
+        }
+
+        .faq {
+            padding: 20px 5px;
+        }
+
+        #feq-box {
+            border: 1px solid gray;
+            box-shadow: 0 0 3px gray;
+            margin: 15px 5px;
+
+        }
+        .conatiner{
+            max-width: 80%;
+            display: block;
+            margin: 30px auto;
+        }
+        #small{
+            font-size: 19px;
+        }
+
+        @media (max-width:1350px) {
+            .highlights {
+                list-style: none;
+                text-align: center;
+                padding: 12px 40px;
+            }
+
+            .flow-box {
+                position: fixed;
+                top: 100px;
+                right: 30px;
+
+            }
+        }
+
+        @media (max-width:1200px) {
+            .highlights {
+                list-style: none;
+                text-align: center;
+                padding: 12px 30px;
+            }
+
+            .flow-box {
+                position: fixed;
+                top: 100px;
+                right: 10px;
+
+            }
+        }
+
+        @media (max-width:1100px) {
+            .couser-highlights ul {
+                display: block;
+            }
+
+            #one {
+                border-left: none;
+            }
+
+            .flow-box {
+                position: fixed;
+                top: 100px;
+                right: 0px;
+
+            }
+        }
+    </style>
+</head>
+
+<body>
+    {% for i in new %}
+    <nav class="navbar">
+        <div class="logo-img">
+            <img src="/static/main.logo-1.png" alt="">
+        </div>
+        <div class="nav-title">
+            <h1>Gurukul E-Learning Academy</h1>
+        </div>
+        <div class="right">
+            <button class="btn"><a href="/student/course">Back to Courses</a></button>
+            <div class="profile-pic">
+                <img src="{{user.sign_up_table.profile_pic.url}}" alt="">
+            </div>
+        </div>
+
+    </nav>
+    <div class="main-title">
+        <div class="contain">
+            <h1>{{i.product_name}}</h1>
+            <p class="course-tagline">{{i.info}}</p>
+            <h3>Instructor : <span class="teachername">{{i.teacher_name}}</span></h3>
+            <div class="couser-highlights">
+                <ul>
+                    <li class="highlights">
+                        <p class="h-title">{{i.rating}} <span class="icon" style="color: rgb(222, 222, 4);"><i
+                                    class='bx bxs-star'></i></span></p>
+                        <p>Rating</p>
+                    </li>
+                    <li class="highlights" id="one">
+                        <p class="h-title">{{i.level}}</p>
+                        <p>Level</p>
+                    </li>
+                    <li class="highlights" id="one">
+                        <p class="h-title"><span class="icon"><i class='bx bx-calendar'></i></span>&nbsp;{{i.duration}}</p>
+                        <p>Course Duration </p>
+                    </li>
+
+                </ul>
+            </div>
+            {% if enroll_course is None %}
+            <button class="btn1"><a href="checkout/{{i.new_slug}}">Enroll Now</a></button>
+            {% else %}
+            <button class="btn1" disabled><a href="" >Already Enroll</a></button>
+            {% endif %}
+        </div>
+        <div class="flow-box">
+            <div class="flow-img">
+                <img src="/static/certification.png" alt="">
+            </div>
+            <div class="flow-info">
+                <h2 class="flow-title">Why upskill with us?</h2>
+                <div class="flow-list">
+                    <ul>
+                        <li class="flow-skill">
+                            <span class="flow-icon" style="color: green;"><i class='bx bxs-check-circle'></i></span>
+                            <p class="skill-info">100+ Free course</p>
+                        </li>
+                        <li class="flow-skill" id="one">
+                            <span class="flow-icon" style="color: red;"><i class='bx bx-trending-up'></i></span>
+                            <p>In-demand Skills & tools</p>
+                        </li>
+                        <li class="flow-skill" id="one">
+                            <span class="flow-icon" style="color: purple;"><i class='bx bx-time-five'></i></span>
+                            <p>Free life time Access</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="about conatiner">
+        <h1>Course Description</h1>
+        <p>{{i.about_course}}</p>
+    </div>
+    <div class="course-layout conatiner">
+        <h1>Course Contents</h1>
+        <div class="courses-container">
+            <div class="course">
+                <div class="course-preview">
+                    <h6>Course</h6>
+                    <h2 id="small">{{i.product_name}}</h2>
+                </div>
+                <div class="course-info">
+                    <h6>Chapter 1</h6>
+                    <h2>{{i.chapter1}}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="courses-container">
+            <div class="course">
+                <div class="course-preview">
+                    <h6>Course</h6>
+                    <h2 id="small">{{i.product_name}}</h2>
+                </div>
+                <div class="course-info">
+                    <h6>Chapter 2</h6>
+                    <h2>{{i.chapter2}}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="courses-container">
+            <div class="course">
+                <div class="course-preview">
+                    <h6>Course</h6>
+                    <h2 id="small">{{i.product_name}}</h2>
+                </div>
+                <div class="course-info">
+                    <h6>Chapter 3</h6>
+                    <h2>{{i.chapter3}}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="courses-container">
+            <div class="course">
+                <div class="course-preview">
+                    <h6>Course</h6>
+                    <h2 id="small">{{i.product_name}}</h2>
+                </div>
+                <div class="course-info">
+                    <h6>Chapter 4</h6>
+                    <h2>{{i.chapter4}}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="courses-container">
+            <div class="course">
+                <div class="course-preview">
+                    <h6>Course</h6>
+                    <h2 id="small">{{i.product_name}}</h2>
+                </div>
+                <div class="course-info">
+                    <h6>Chapter 5</h6>
+                    <h2>{{i.chapter5}}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="feq conatiner">
+        <h1>Frequently Asked Questions</h1>
+        <div class="accordion accordion-flush" id="accordionFlushExample">
+            <div class="accordion-item" id="feq-box">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                        How do I enroll in a course?
+                    </button>
+                </h2>
+                <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">Enrolling in a course is simple. Browse through our course catalog,
+                        which can be filtered by subject, difficulty, or duration. Once you find a course that interests
+                        you, click on it to view the details, then hit the "Enroll" button. If the course requires
+                        payment, you’ll be guided through the payment process before finalizing your enrollment.</div>
+                </div>
+            </div>
+            <div class="accordion-item" id="feq-box">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                        Will I receive a certificate after completing a course?
+                    </button>
+                </h2>
+                <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">Yes, upon successful completion of a course, you will receive a
+                        certificate that you can download and share. This certificate can be a valuable addition to your
+                        resume or LinkedIn profile, showcasing your new skills.</div>
+                </div>
+            </div>
+            <div class="accordion-item" id="feq-box">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                        How can I track my progress in a course?
+                    </button>
+                </h2>
+                <div id="flush-collapseThree" class="accordion-collapse collapse"
+                    data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">You can easily monitor your progress through your dashboard. It provides
+                        an overview of completed modules, upcoming assignments, and your overall course performance,
+                        helping you stay on track.</div>
+                </div>
+            </div>
+            <div class="accordion-item" id="feq-box">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+                        Is there a fee to access the courses?
+                    </button>
+                </h2>
+                <div id="flush-collapseFour" class="accordion-collapse collapse"
+                    data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">Our platform offers a mix of free and paid courses. While many
+                        introductory courses and resources are available at no cost, more advanced or specialized
+                        courses may require payment. Detailed pricing information can be found on each course page.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item" id="feq-box">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
+                        How can I contact customer support?
+                    </button>
+                </h2>
+                <div id="flush-collapseFive" class="accordion-collapse collapse"
+                    data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">Customer support is available to assist you with any issues or
+                        questions. You can reach us through the "Contact Us" page on the website, via email, or through
+                        our live chat feature. Our support team is committed to providing timely assistance.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endfor %}
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

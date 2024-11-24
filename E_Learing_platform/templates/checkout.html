@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Automatic Popup</title>
+    <!--Google Fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <!--Stylesheets-->
+    <style>
+        *,
+        *:before,
+        *:after {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0f72e5;
+        }
+
+        .popup {
+            background-color: #ffffff;
+            width: 450px;
+            padding: 30px 40px;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            left: 50%;
+            top: 50%;
+            border-radius: 8px;
+            font-family: "Poppins", sans-serif;
+            display: none;
+            text-align: center;
+        }
+
+        /* .popup button {
+            display: block;
+            margin: 0 0 20px auto;
+            background-color: transparent;
+            font-size: 30px;
+            color: #c5c5c5;
+            border: none;
+            outline: none;
+            cursor: pointer;
+        } */
+        #close{
+            display: block;
+            margin: 0 0 20px auto;
+            background-color: transparent;
+            font-size: 30px;
+            color: #c5c5c5;
+            border: none;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .popup p {
+            font-size: 14px;
+            text-align: justify;
+            margin: 20px 0;
+            line-height: 25px;
+        }
+
+        a {
+            display: block;
+            width: 150px;
+            position: relative;
+            margin: 10px auto;
+            text-align: center;
+            background-color: #0f72e5;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 5px 0;
+        }
+        .btn{
+            text-align: center;
+            width: 300px;
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="popup">
+        <button id="close">&times;</button>
+        <h2>Are you Confirm to Enroll </h2>
+        <form action="{% url 'dashboard' %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <!-- {% if status %}
+                    <div class="alert alert-primary" style="text-align: center;">{{status}}</div>
+                    <script>
+                        alert("{{status}}");
+                        window.location = "student"
+                    </script>
+                    {% endif %} -->
+                    
+                    <div class="row">
+                        <label for="cname">Course Name :</label>
+                        <input type="text" name="cname" id="cname" value="{{sub.product_name}}">
+                    </div>
+                    
+                    <div class="row">
+                        <label for="duration">Duration :</label>
+                        <input type="text" name="duration" id="duration" value="{{sub.duration}}">
+                    </div>
+                    
+                    
+                   
+                   
+                    <div class="btn" style="padding-top: 20px;">
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary">Save</button>
+                          </div>
+                    </div>
+                </form>
+    </div>
+    <!--Script-->
+    <script>
+        window.addEventListener("load", function () {
+            setTimeout(
+                function open(event) {
+                    document.querySelector(".popup").style.display = "block";
+                },
+                1000
+            )
+        });
+
+
+        document.querySelector("#close").addEventListener("click", function () {
+            document.querySelector(".popup").style.display = "none";
+        });
+    </script>
+</body>
+
+</html>
